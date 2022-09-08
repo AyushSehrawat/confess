@@ -1,0 +1,39 @@
+#main {
+  height: 100vh;
+  background-color: #1D1F21;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#info {
+  width: 90%;
+  height: 460px;
+  border-radius: 5px;
+  color: var(--bs-white);
+  background-color: rgba(0,0,0, 0.35);
+  left: 50%;
+  top: 40%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  font-size: 12px;
+}
+
+@media (min-width: 576px) {
+  #info {
+    max-width: 350px;
+  }
+}
+
+#form-login {
+  max-width: 70%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#ventaspro-logo {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+

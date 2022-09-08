@@ -1,0 +1,15 @@
+python-dotenv
+fastapi
+uvicorn[standard]
+motor
+pymongo
+dnspython
+nest_asyncio
+jinja2
+requests
+python-multipart
+fastapi-another-jwt-auth
+deta
+locust
+gevent
+pydantic[email]
