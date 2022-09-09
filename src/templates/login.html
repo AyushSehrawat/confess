@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>confess</title>
+    <title>Confess</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;display=swap">
@@ -27,10 +27,11 @@
         <div class="text-center" id="info" style="background: #1D1F21;">
             <h3 class="text-center"><span style="color: rgba(34, 187, 187, 0.8);">Login</span></h3>
             <p class="text-center"><span style="color: rgb(102, 102, 102);">Welcome Back</span></p>
-            <form class="text-start" id="form-login">
+            <form class="text-start" id="form-login" method="post" action="/post/login">
                 <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario"><span style="color: rgb(102, 102, 102);">Username</span></label><input class="form-control" type="text" id="txt-usuario" name="username" placeholder="John"></div>
                 <div class="mb-3"><label class="form-label" id="lbl-password" for="txt-password"><span style="color: rgb(102, 102, 102);">Password</span></label><input class="form-control" type="password" id="txt-password" name="password" placeholder="John's Secret"></div>
-            </form><button class="btn btn-primary" id="btn-sesion" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: var(--bs-btn-hover-color);color: #666;"><span style="color: rgb(102, 102, 102);">Login</span></button>
+                <button class="btn btn-primary" id="btn-sesion" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: var(--bs-btn-hover-color);color: #666;"><span style="color: rgb(102, 102, 102);">Login</span></button>
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>

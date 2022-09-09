@@ -22,12 +22,13 @@ from fastapi_another_jwt_auth.exceptions import AuthJWTException
 from pydantic import BaseModel
 
 # Import the routers [ from src.view import main as view_main]
-# ...
+from src.confess import main as confess_main
+from src.operations import post as operations_post
 
 # Some Env Variables And Configurations
 load_dotenv()
-from app.database import user, posts
-from app.models import UserModel
+from src.database import user, posts
+from src.models import UserModel
 
 app = FastAPI(
     title="Confessioner",
@@ -48,8 +49,8 @@ app = FastAPI(
 
 # Jinja2 Templating
 BASE_PATH = Path(__file__).resolve().parent
-TEMPLATES = Jinja2Templates(directory=str(BASE_PATH / "app/templates"))
-app.mount("/assets", StaticFiles(directory=str(BASE_PATH / "app/assets")), name="assets")
+TEMPLATES = Jinja2Templates(directory=str(BASE_PATH / "src/templates"))
+app.mount("/assets", StaticFiles(directory=str(BASE_PATH / "src/assets")), name="assets")
 
 class Settings(BaseModel):
     authjwt_secret_key: str = str(os.getenv("SECRET_KEY"))
@@ -74,6 +75,8 @@ async def index(request : Request):
     return TEMPLATES.TemplateResponse("index.html", {"request": request})
 
 # Add the views like -> app.include_router(view_main.router)
+app.include_router(confess_main.router)
+app.include_router(operations_post.router)
 
 if __name__ == '__main__':
     uvicorn.run("main:app",host='0.0.0.0', port=int(os.getenv("PORT")), reload=True, debug=True, workers=2)
