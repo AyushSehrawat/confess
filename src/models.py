@@ -55,3 +55,7 @@ class UserModel(BaseModel):
     is_staff : Optional[bool] = False
     created_at : Optional[datetime] = datetime.now()
 
+@as_form
+class LoginModel(BaseModel):
+    username : str
+    password : str
