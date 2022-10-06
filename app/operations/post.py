@@ -2,29 +2,28 @@ import sys
 import os
 import json
 from typing import Optional
-
 from fastapi import APIRouter, HTTPException, Depends, Request, Response, Header
 from fastapi import Request, Form
 from fastapi import Response
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, StreamingResponse
-
 import asyncio
-
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
 from pydantic import BaseModel
 from fastapi_another_jwt_auth import AuthJWT
 
-
 router = APIRouter(
     prefix="/post",
-    responses={404: {"description": "Not found"}}
+    responses={
+        404: {"description": "Not found"}
+    }
 )
 
+from utils.database import user, posts
+from utils.models import validate_base_model ,as_form ,UserModel, LoginModel
 from ..database import user, posts
-from ..models import validate_base_model ,as_form ,UserModel, LoginModel
+from ..models import validate_base_model ,as_form ,UserModel
 
 @router.post("/register", include_in_schema=False)
 async def post_register(request: Request,
@@ -52,9 +51,6 @@ async def post_register(request: Request,
             return RedirectResponse(url="/", status_code=303)
     elif result == True:
         return JSONResponse(content={"message": "Invalid form data"}, status_code=400)
-
-from ..database import user, posts
-from ..models import validate_base_model ,as_form ,UserModel
 
 @router.post("/login", include_in_schema=False)
 async def post_login(request: Request,

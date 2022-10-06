@@ -1,6 +1,0 @@
-version: '3'
-services:
-  fastapi:
-    build: .
-    ports:
-      - "8000:8000"

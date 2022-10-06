@@ -11,7 +11,6 @@ import pydantic
 from pydantic.fields import ModelField
 # Ignore code editor saying self needed under validator
 
-
 def validate_base_model(username, password, confirm_password):
     default = False
     if (len(username), len(password), len(confirm_password)) > (30,30,30):

@@ -1,5 +1,12 @@
 # Deta
 .deta
+poetry.lock
+pyproject.toml
+.replit
+replit.nix
+.venv
+.git
+.config
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

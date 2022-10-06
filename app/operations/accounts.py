@@ -30,9 +30,9 @@ router = APIRouter(
     responses={404: {"description": "Not found"}}
 )
 
-BASE_PATH = Path().resolve()
-TEMPLATES = Jinja2Templates(directory=str(BASE_PATH / "src/templates"))
-router.mount("/assets", StaticFiles(directory=str(BASE_PATH / "src/assets")), name="assets")
+# Jinja2 Templating
+TEMPLATES = Jinja2Templates(directory="templates")
+router.mount("/static", StaticFiles(directory="static"), name="static")
 
 @router.get("/login", include_in_schema=False)
 async def login(request : Request, Authorize: AuthJWT = Depends()):
