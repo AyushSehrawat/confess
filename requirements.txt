@@ -1,0 +1,13 @@
+python-dotenv
+fastapi
+uvicorn
+Jinja2
+requests
+python-multipart
+fastapi-another-jwt-auth
+deta
+locust
+gevent 
+pydantic
+email-validator
+pytailwindcss
