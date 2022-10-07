@@ -12,6 +12,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from fastapi_another_jwt_auth import AuthJWT
+from utils.database import user, posts
+from utils.models import validate_base_model ,as_form ,UserModel, LoginModel
 
 router = APIRouter(
     prefix="/post",
@@ -19,11 +21,6 @@ router = APIRouter(
         404: {"description": "Not found"}
     }
 )
-
-from utils.database import user, posts
-from utils.models import validate_base_model ,as_form ,UserModel, LoginModel
-from ..database import user, posts
-from ..models import validate_base_model ,as_form ,UserModel
 
 @router.post("/register", include_in_schema=False)
 async def post_register(request: Request,

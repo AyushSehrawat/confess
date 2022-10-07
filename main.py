@@ -8,6 +8,7 @@ from fastapi import FastAPI, HTTPException, Depends, Request, Form, Cookie, Resp
 from fastapi.responses import RedirectResponse, JSONResponse, ORJSONResponse, HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+import uvicorn
 
 # Auth Library Imports
 from fastapi_another_jwt_auth import AuthJWT
@@ -74,3 +75,6 @@ async def confess_logo(request: Request):
 # Add the views like -> app.include_router(view_main.router)
 app.include_router(confess_main.router)
 app.include_router(operations_post.router)
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000, debug=True)
