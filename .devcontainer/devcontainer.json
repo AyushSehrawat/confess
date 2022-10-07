@@ -1,0 +1,20 @@
+{
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.8",
+  "forwardPorts": [8000],
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+      "ms-python.python",
+      "akamud.vscode-theme-onedark",
+      "github.copilot",
+      "codezombiech.gitignore",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "ritwickdey.liveserver"
+      ]
+    }
+  }
+}
