@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Push to deta
+      - name: Push code to deta
         uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }}
@@ -25,7 +25,8 @@ jobs:
           deta-project: 'confess'
           deta-project-dir: '.'
       
-      - name: Push .env file
+      - name: Push .env file to deta
+        # Get variable from secrets and create .env file
         run: |
           touch .env
           echo "DETA_PROJECT_KEY=${{ secrets.DETA_PROJECT_KEY }}" >> .env
