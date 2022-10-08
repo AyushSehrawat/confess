@@ -12,23 +12,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python environment
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
-      - name: Deploy to deta
-        uses: actions/checkout@v2
+      - name: Push code to deta
         uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }}
           deta-name: 'confess'
           deta-project: 'confess'
           deta-project-dir: '.'
-      
-      - name: Push .env file
-        run: |
-          touch .env
-          echo "DETA_PROJECT_KEY=${{ secrets.DETA_PROJECT_KEY }}" >> .env
-          echo "SECRET_KEY"=${{ secrets.SECRET_KEY }} >> .env
-          deta update -e .env
