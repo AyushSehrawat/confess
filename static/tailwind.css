@@ -589,36 +589,24 @@ video {
   position: absolute;
 }
 
-.m-1 {
-  margin: 0.25rem;
+.float-right {
+  float: right;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
+.float-none {
+  float: none;
+}
+
+.m-1 {
+  margin: 0.25rem;
 }
 
 .mb-3 {
   margin-bottom: 0.75rem;
 }
 
-.flex {
-  display: flex;
-}
-
-.h-11 {
-  height: 2.75rem;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.w-11 {
-  width: 2.75rem;
-}
-
-.w-10 {
-  width: 2.5rem;
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .select-none {
@@ -627,22 +615,22 @@ video {
           user-select: none;
 }
 
-.rounded-full {
-  border-radius: 9999px;
+.place-items-center {
+  place-items: center;
 }
 
-.border {
-  border-width: 1px;
+.justify-center {
+  justify-content: center;
 }
 
-.border-sky-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(56 189 248 / var(--tw-border-opacity));
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
-.border-green-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(74 222 128 / var(--tw-border-opacity));
+.place-self-center {
+  place-self: center;
 }
 
 .bg-slate-900 {
@@ -658,21 +646,28 @@ video {
   padding: 0.75rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
-.pb-0 {
-  padding-bottom: 0px;
+.py-52 {
+  padding-top: 13rem;
+  padding-bottom: 13rem;
 }
 
-.pt-6 {
-  padding-top: 1.5rem;
+.px-60 {
+  padding-left: 15rem;
+  padding-right: 15rem;
+}
+
+.px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
 }
 
 .text-center {
@@ -683,33 +678,51 @@ video {
   text-align: start;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-slate-100 {
+  --tw-text-opacity: 1;
+  color: rgb(241 245 249 / var(--tw-text-opacity));
+}
+
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity));
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @media (min-width: 768px) {
-  .md\:h-14 {
-    height: 3.5rem;
+  .md\:h-32 {
+    height: 8rem;
   }
 
-  .md\:h-11 {
-    height: 2.75rem;
+  .md\:w-32 {
+    width: 8rem;
   }
 
-  .md\:w-14 {
-    width: 3.5rem;
+  .md\:px-44 {
+    padding-left: 11rem;
+    padding-right: 11rem;
   }
 
-  .md\:w-1 {
-    width: 0.25rem;
+  .md\:py-72 {
+    padding-top: 18rem;
+    padding-bottom: 18rem;
   }
 
-  .md\:w-11 {
-    width: 2.75rem;
-  }
-
-  .md\:px-24 {
-    padding-left: 6rem;
-    padding-right: 6rem;
-  }
-
-  .md\:pt-10 {
-    padding-top: 2.5rem;
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
