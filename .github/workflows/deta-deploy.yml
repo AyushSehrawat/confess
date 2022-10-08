@@ -30,7 +30,8 @@ jobs:
         run: |
           curl -fsSL https://get.deta.dev/cli.sh | sh
 
-      - name: Deploy .env file    
+      - name: Deploy .env file
+        shell: bash  
         run: |
           touch .env
           echo "DETA_PROJECT_KEY=${{ secrets.DETA_PROJECT_KEY }}" >> .env
