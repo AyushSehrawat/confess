@@ -18,13 +18,13 @@ jobs:
           python-version: 3.9
 
       - name: Deploy to deta
-        - uses: actions/checkout@v2
-        - uses: BogDAAAMN/deta-deploy-action@v1.0.1
-          with:
-            deta-access-token: ${{ secrets.DETA_TOKEN }}
-            deta-name: 'confess'
-            deta-project: 'confess'
-            deta-project-dir: '.'
+        uses: actions/checkout@v2
+        uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-name: 'confess'
+          deta-project: 'confess'
+          deta-project-dir: '.'
       
       - name: Push .env file
         run: |
