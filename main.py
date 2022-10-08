@@ -4,8 +4,23 @@ from typing import Optional, Any
 from pathlib import Path
 
 # FastAPI imports
-from fastapi import FastAPI, HTTPException, Depends, Request, Form, Cookie, Response, Query
-from fastapi.responses import RedirectResponse, JSONResponse, ORJSONResponse, HTMLResponse, FileResponse
+from fastapi import (
+    FastAPI,
+    HTTPException,
+    Depends,
+    Request,
+    Form,
+    Cookie,
+    Response,
+    Query,
+)
+from fastapi.responses import (
+    RedirectResponse,
+    JSONResponse,
+    ORJSONResponse,
+    HTMLResponse,
+    FileResponse,
+)
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import uvicorn
@@ -39,12 +54,13 @@ app = FastAPI(
         "url": "https://opensource.org/licenses/MIT",
     },
     docs_url="/docs",
-    redoc_url=None
+    redoc_url=None,
 )
 
 # Jinja2 Templating
 TEMPLATES = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 class Settings(BaseModel):
     authjwt_secret_key: str = str(os.environ["SECRET_KEY"])
@@ -53,24 +69,30 @@ class Settings(BaseModel):
     access_expires: int = timedelta(days=7)
     # In case of error do authjwt_cookie_csrf_protect: bool = False
 
+
 settings = Settings()
+
 
 @AuthJWT.load_config
 def get_config():
     return settings
+
 
 @app.exception_handler(AuthJWTException)
 def authjwt_exception_handler(request: Request, exc: AuthJWTException):
     # If user not logged in redirect to /
     return RedirectResponse(url="/", status_code=303)
 
+
 @app.get("/", include_in_schema=False)
-async def index(request : Request):
+async def index(request: Request):
     return TEMPLATES.TemplateResponse("index.html", {"request": request})
+
 
 @app.get("/media/confess-logo", response_class=FileResponse)
 async def confess_logo(request: Request):
     return "./media/confess.png"
+
 
 # Add the views like -> app.include_router(view_main.router)
 app.include_router(confess_main.router)
