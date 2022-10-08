@@ -7,10 +7,28 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 #Be sure you check-out the repo first. Deta CLI needs access to the files
-      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
-          deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
-          deta-name: 'confess' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project: 'confess' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project-dir: '.' #Optional: directory to be deployed on Deta. Default is the root "." 
+          fetch-depth: 0
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Deploy to deta
+        - uses: actions/checkout@v2
+        - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+          with:
+            deta-access-token: ${{ secrets.DETA_TOKEN }}
+            deta-name: 'confess'
+            deta-project: 'confess'
+            deta-project-dir: '.'
+      
+      - name: Push .env file
+        run: |
+          touch .env
+          echo "DETA_PROJECT_KEY=${{ secrets.DETA_PROJECT_KEY }}" >> .env
+          echo "SECRET_KEY"=${{ secrets.SECRET_KEY }} >> .env
+          deta update -e .env

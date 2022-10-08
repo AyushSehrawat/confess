@@ -91,7 +91,7 @@ async def index(request: Request):
 
 @app.get("/media/confess-logo", response_class=FileResponse)
 async def confess_logo(request: Request):
-    return "./media/confess.png"
+    return FileResponse("media/confess.png")
 
 
 # Add the views like -> app.include_router(view_main.router)
