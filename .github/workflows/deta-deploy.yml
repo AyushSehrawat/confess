@@ -17,6 +17,11 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Install cli
+        shell: bash
+        run: |
+          curl -fsSL https://get.deta.dev/cli.sh | sh
+
       - name: Push code to deta
         uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
@@ -24,11 +29,6 @@ jobs:
           deta-name: 'confess'
           deta-project: 'confess'
           deta-project-dir: '.'
-      
-      - name: Install cli and install
-        shell: bash
-        run: |
-          curl -fsSL https://get.deta.dev/cli.sh | sh
 
       - name: Deploy .env file
         shell: bash  
