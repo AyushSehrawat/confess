@@ -17,8 +17,7 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Deploy to deta
-        uses: actions/checkout@v2
+      - name: Push to deta
         uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }}
