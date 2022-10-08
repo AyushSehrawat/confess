@@ -25,13 +25,12 @@ jobs:
           deta-project: 'confess'
           deta-project-dir: '.'
       
-      - name: Install deta library
-        # Get variable from secrets and create .env file
+      - name: Install cli and install
+        shell: bash
         run: |
-          python -m pip install --upgrade pip
-          pip install deta
-      
-      - name: Deploy the .env file
+          curl -fsSL https://get.deta.dev/cli.sh | sh
+
+      - name: Deploy .env file    
         run: |
           touch .env
           echo "DETA_PROJECT_KEY=${{ secrets.DETA_PROJECT_KEY }}" >> .env
