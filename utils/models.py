@@ -9,15 +9,18 @@ import inspect
 from typing import Type
 import pydantic
 from pydantic.fields import ModelField
+
 # Ignore code editor saying self needed under validator
+
 
 def validate_base_model(username, password, confirm_password):
     default = False
-    if (len(username), len(password), len(confirm_password)) > (30,30,30):
-        default = True # True cus they passed validation
+    if (len(username), len(password), len(confirm_password)) > (30, 30, 30):
+        default = True  # True cus they passed validation
     if password != confirm_password:
         default = True
     return default
+
 
 def as_form(cls: Type[BaseModel]):
     """
@@ -45,16 +48,18 @@ def as_form(cls: Type[BaseModel]):
     except pydantic.ValidationError as e:
         raise HTTPException(status_code=400, detail=e.errors())
 
+
 @as_form
 class UserModel(BaseModel):
-    username : str
-    password : str
-    confirm_password : str
-    is_admin : Optional[bool] = False
-    is_staff : Optional[bool] = False
-    created_at : Optional[datetime] = datetime.now()
+    username: str
+    password: str
+    confirm_password: str
+    is_admin: Optional[bool] = False
+    is_staff: Optional[bool] = False
+    created_at: Optional[datetime] = datetime.now()
+
 
 @as_form
 class LoginModel(BaseModel):
-    username : str
-    password : str
+    username: str
+    password: str
