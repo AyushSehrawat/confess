@@ -93,11 +93,6 @@ async def index(request: Request):
 async def confess_logo(request: Request):
     return FileResponse("media/confess.png")
 
-@app.get("/media/signup-preview")
-async def confess_logo(request: Request):
-    return FileResponse("media/signup.png")
-
-
 # Add the views like -> app.include_router(view_main.router)
 app.include_router(operations_account.router)
 app.include_router(operations_post.router)
