@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-    .confess-homepage-logo {
+@layer components {
+    .float-center {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        @apply w-28 h-28;
     }
 }

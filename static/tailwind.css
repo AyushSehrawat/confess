@@ -585,6 +585,12 @@ video {
   }
 }
 
+.float-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .m-1 {
   margin: 0.25rem;
 }
@@ -599,6 +605,10 @@ video {
 
 .block {
   display: block;
+}
+
+.h-28 {
+  height: 7rem;
 }
 
 .w-28 {
@@ -648,9 +658,9 @@ video {
   padding-right: 1.5rem;
 }
 
-.py-40 {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+.py-44 {
+  padding-top: 11rem;
+  padding-bottom: 11rem;
 }
 
 .px-16 {
@@ -670,18 +680,6 @@ video {
 
 .pb-0 {
   padding-bottom: 0px;
-}
-
-.pb-40 {
-  padding-bottom: 10rem;
-}
-
-.pt-20 {
-  padding-top: 5rem;
-}
-
-.pb-44 {
-  padding-bottom: 11rem;
 }
 
 .text-left {
@@ -729,27 +727,14 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.confess-homepage-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 7rem;
-  width: 7rem;
-}
-
 @media (min-width: 768px) {
   .md\:px-44 {
     padding-left: 11rem;
     padding-right: 11rem;
   }
 
-  .md\:py-72 {
-    padding-top: 18rem;
-    padding-bottom: 18rem;
-  }
-
-  .md\:pb-72 {
-    padding-bottom: 18rem;
+  .md\:pb-80 {
+    padding-bottom: 20rem;
   }
 
   .md\:pt-28 {
