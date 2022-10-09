@@ -33,7 +33,7 @@ from fastapi_another_jwt_auth.exceptions import AuthJWTException
 from pydantic import BaseModel
 
 # Import the routers [ from view import main as view_main]
-from operations import accounts as confess_main
+from operations import accounts as operations_account
 from operations import post as operations_post
 
 # Some Env Variables And Configurations
@@ -89,13 +89,17 @@ async def index(request: Request):
     return TEMPLATES.TemplateResponse("index.html", {"request": request})
 
 
-@app.get("/media/confess-logo", response_class=FileResponse)
+@app.get("/media/confess-logo")
 async def confess_logo(request: Request):
     return FileResponse("media/confess.png")
 
+@app.get("/media/signup-preview")
+async def confess_logo(request: Request):
+    return FileResponse("media/signup.png")
+
 
 # Add the views like -> app.include_router(view_main.router)
-app.include_router(confess_main.router)
+app.include_router(operations_account.router)
 app.include_router(operations_post.router)
 
 if __name__ == "__main__":

@@ -1,42 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Confess</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass+Mono&amp;display=swap">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/Animated-Text-Background.css">
-    <link rel="stylesheet" href="assets/css/Community-ChatComments.css">
-    <link rel="stylesheet" href="assets/css/dh-highlight-icon-heading.css">
-    <link rel="stylesheet" href="assets/css/Section-Title.css">
-    <link rel="stylesheet" href="assets/css/VentasPro-Login.css">
-</head>
+    <!-- Browser Configs -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body style="background: #1D1F21;">
-    <div class="d-flex justify-content-center align-items-center" id="animatedTextBackground" style="background: #1D1F21;">
-        <h1 id="animatedTextHeading" style="margin-top: -1px;margin-bottom: 25px;padding-bottom: 45px;">Register</h1>
-    </div>
-    <div id="main">
-        <div class="text-center" id="info" style="background: #1D1F21;">
-            <h3 class="text-center"><span style="color: rgba(34, 187, 187, 0.8);">Register</span></h3>
-            <p class="text-center"><span style="color: rgb(102, 102, 102);">Welcome to Confess</span></p>
-            <form class="text-start" id="form-login" method="post" action="post/register">
-                <div class="mb-3"><label class="form-label" id="lbl-usuario" for="txt-usuario"><span style="color: rgb(102, 102, 102);">Username</span></label><input class="form-control" type="text" id="txt-usuario" name="username" placeholder="John"></div>
-                <div class="mb-3"><label class="form-label" id="lbl-password" for="txt-password"><span style="color: rgb(102, 102, 102);">Password</span></label><input class="form-control" type="password" id="txt-password" name="password" placeholder="John's Secret"></div>
-                <div class="mb-3"><label class="form-label" id="lbl-password-1" for="txt-password"><span style="color: rgb(102, 102, 102);">Confirm Password</span></label><input class="form-control" type="password" id="txt-password-1" name="confirm_password" placeholder="Confirm John's Secret"></div>
-                <button class="btn btn-primary" id="btn-sesion" type="submit" style="--bs-primary: #256db4;--bs-primary-rgb: 37,109,180;background: var(--bs-btn-hover-color);color: #666;"><span style="color: rgb(102, 102, 102);">Register</span></button>
-            </form>
+    <!-- Website Configs --->
+    <title>Confess Sign Up</title>
+    <link rel="icon" type="image/png" href="/media/confess-logo">
+    <meta name="description" content="Share your confessions with the world while being anonymous.">
+	<meta property="og:image" content="/media/confess-logo">
+    <meta name="theme-color" content="#4ADE80">
+    <meta name="author" content="Swayam & Ayush Sehrawat">
+    <meta name="keywords" content="Confess, Confessions, Chat, Friends">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/static/tailwind.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+</head>
+<body class="bg-slate-900 select-none">
+    <!-- Register Form -->
+    <div id="register-form" class="text-center antialised px-6 md:px-44 py-20 space-y-2">
+        <img class="float-center w-28 h-28" src="/media/confess-logo" />
+        <h1 class="text-slate-100 text-4xl md:text-5xl font-bold">Confess Sign Up</h1>
+        <br> <br> <br> <br>
+        <form class="w-full md:px-[452px] md:flex md:gap-4">
+            <div class="text-left flex flex-wrap px-11 py-4">
+                <div class="w-full px-2">
+                    <label class="block uppercase tracking-wide text-slate-400 text-xs font-bold mb-2" for="username">
+                        Username
+                    </label>
+                    <input class="appearance-none block bg-slate-800 text-slate-400 border border-slate-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-green-400" id="form-username" type="text" placeholder="Confess User">
+                    <p class="text-slate-600 text-xs italic">Enter your username of your desire.</p>
+                </div>
+            </div>
+            <div class="text-left flex flex-wrap px-11 py-4">
+                <div class="w-full px-2">
+                    <label class="block uppercase tracking-wide text-slate-400 text-xs font-bold mb-2" for="grid-password">
+                        Password
+                    </label>
+                    <input class="appearance-none block bg-slate-800 text-slate-400 border border-slate-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-green-400" id="form-password" type="password" placeholder="******************">
+                    <p class="text-slate-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+                </div>
+            </div>
+        </form>
+        <br> <br>
+        <div class="p-2">
+            <a href="/dashboard">
+                <button class="border border-green-400 rounded-md text-green-400 px-8 py-4 font-mono"><i class="bx bx-user text-green-4"></i> Sign Up</button>
+            </a>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/Animated-Text-Background.js"></script>
 </body>
-
-</html>
